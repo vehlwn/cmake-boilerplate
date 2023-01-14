@@ -1,7 +1,7 @@
 set(TARGET random)
 add_executable(${TARGET} random.cpp)
 if(USE_CONAN)
-    target_link_libraries(${TARGET} ${CONAN_LIBS})
+    target_link_libraries(${TARGET} PRIVATE ${CONAN_LIBS})
 else()
     find_package(Boost REQUIRED COMPONENTS random)
     target_include_directories(${TARGET} SYSTEM PUBLIC ${Boost_INCLUDE_DIRS})
