@@ -16,5 +16,6 @@ if(USE_CONAN)
     conan_basic_setup()
 endif()
 
+include(CMakePrintHelpers)
 include(cmake/HardenCxxFlags.cmake)
 add_subdirectory(src)

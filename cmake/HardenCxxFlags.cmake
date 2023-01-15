@@ -51,4 +51,4 @@ foreach(flag IN LISTS INITIAL_HARDEN_CXX_FLAGS)
     endif()
 endforeach(flag IN LISTS INITIAL_HARDEN_CXX_FLAGS)
 
-message(STATUS "HARDEN_CXX_FLAGS=${HARDEN_CXX_FLAGS}")
+cmake_print_variables(HARDEN_CXX_FLAGS)
