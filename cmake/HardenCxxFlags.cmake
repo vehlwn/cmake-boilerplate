@@ -12,7 +12,6 @@ set(HARDEN_CXX_FLAGS_COMMON
     -Werror=switch
     -Werror=uninitialized
     -Wextra
-    -Wlogical-op
     -Wshadow
     -Wundef
     -pedantic-errors
@@ -25,6 +24,7 @@ set(HARDEN_CXX_FLAGS_GCC
     -Werror=maybe-uninitialized
     -Werror=return-local-addr
     -Wformat-signedness
+    -Wlogical-op
     -Wstrict-overflow=4
 )
 set(HARDEN_CXX_FLAGS_CLANG
