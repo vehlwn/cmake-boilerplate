@@ -30,7 +30,7 @@ set(HARDEN_CXX_FLAGS_GCC
 set(HARDEN_CXX_FLAGS_CLANG
     -Werror=conditional-uninitialized -Werror=delete-non-abstract-non-virtual-dtor
     -Werror=return-stack-address -Wfor-loop-analysis
-    -Wtautological-constant-in-range-compare
+    -Wtautological-constant-in-range-compare -Werror=dangling-gsl
 )
 
 set(INITIAL_HARDEN_CXX_FLAGS)
