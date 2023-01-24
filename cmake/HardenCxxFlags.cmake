@@ -12,6 +12,7 @@ set(HARDEN_CXX_FLAGS_COMMON
     -Werror=return-type
     -Werror=sign-conversion
     -Werror=switch
+    -Werror=tautological-compare
     -Werror=uninitialized
     -Wextra
     -Wshadow
@@ -25,6 +26,7 @@ set(HARDEN_CXX_FLAGS_GCC
     -Werror=arith-conversion
     -Werror=dangling-pointer=2
     -Werror=maybe-uninitialized
+    -Werror=nonnull-compare
     -Werror=return-local-addr
     -Wformat-signedness
     -Wlogical-op
@@ -37,7 +39,6 @@ set(HARDEN_CXX_FLAGS_CLANG
     -Werror=delete-non-abstract-non-virtual-dtor
     -Werror=return-stack-address
     -Wfor-loop-analysis
-    -Wtautological-constant-in-range-compare
 )
 
 set(INITIAL_HARDEN_CXX_FLAGS)
