@@ -8,3 +8,17 @@ else()
     target_link_libraries(${TARGET} PUBLIC ${Boost_LIBRARIES})
 endif()
 target_compile_options(${TARGET} PRIVATE ${HARDEN_CXX_FLAGS})
+
+set(TARGET codepoints)
+add_executable(${TARGET} codepoints.cpp)
+if(USE_CONAN)
+    target_link_libraries(${TARGET} PRIVATE ${CONAN_LIBS})
+else()
+    find_package(ICU REQUIRED COMPONENTS uc i18n)
+    find_package(Boost REQUIRED COMPONENTS regex)
+    target_include_directories(
+        ${TARGET} SYSTEM PUBLIC ${Boost_INCLUDE_DIRS} ${ICU_INCLUDE_DIRS}
+    )
+    target_link_libraries(${TARGET} PUBLIC ${Boost_LIBRARIES} ${ICU_LIBRARIES})
+endif()
+target_compile_options(${TARGET} PRIVATE ${HARDEN_CXX_FLAGS})
