@@ -1,4 +1,6 @@
 set(HARDEN_CXX_FLAGS_COMMON
+    # cmake-format: sortable
+    -pedantic-errors
     -Wall
     -Werror=cast-align
     -Werror=conversion
@@ -14,10 +16,10 @@ set(HARDEN_CXX_FLAGS_COMMON
     -Wextra
     -Wshadow
     -Wundef
-    -pedantic-errors
 )
 
 set(HARDEN_CXX_FLAGS_GCC
+    # cmake-format: sortable
     -Wduplicated-branches
     -Wduplicated-cond
     -Werror=arith-conversion
@@ -29,9 +31,13 @@ set(HARDEN_CXX_FLAGS_GCC
     -Wstrict-overflow=4
 )
 set(HARDEN_CXX_FLAGS_CLANG
-    -Werror=conditional-uninitialized -Werror=delete-non-abstract-non-virtual-dtor
-    -Werror=return-stack-address -Wfor-loop-analysis
-    -Wtautological-constant-in-range-compare -Werror=dangling
+    # cmake-format: sortable
+    -Werror=conditional-uninitialized
+    -Werror=dangling
+    -Werror=delete-non-abstract-non-virtual-dtor
+    -Werror=return-stack-address
+    -Wfor-loop-analysis
+    -Wtautological-constant-in-range-compare
 )
 
 set(INITIAL_HARDEN_CXX_FLAGS)
