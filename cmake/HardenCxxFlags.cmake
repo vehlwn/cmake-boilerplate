@@ -21,6 +21,7 @@ set(HARDEN_CXX_FLAGS_GCC
     -Wduplicated-branches
     -Wduplicated-cond
     -Werror=arith-conversion
+    -Werror=dangling-pointer=2
     -Werror=maybe-uninitialized
     -Werror=return-local-addr
     -Wformat-signedness
@@ -30,7 +31,7 @@ set(HARDEN_CXX_FLAGS_GCC
 set(HARDEN_CXX_FLAGS_CLANG
     -Werror=conditional-uninitialized -Werror=delete-non-abstract-non-virtual-dtor
     -Werror=return-stack-address -Wfor-loop-analysis
-    -Wtautological-constant-in-range-compare -Werror=dangling-gsl
+    -Wtautological-constant-in-range-compare -Werror=dangling
 )
 
 set(INITIAL_HARDEN_CXX_FLAGS)
