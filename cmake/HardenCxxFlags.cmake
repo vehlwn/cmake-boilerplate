@@ -7,7 +7,6 @@ set(HARDEN_CXX_FLAGS_COMMON
     -Werror=format
     -Werror=format-security
     -Werror=implicit-fallthrough
-    -Werror=null-dereference
     -Werror=pedantic
     -Werror=return-type
     -Werror=sign-conversion
@@ -15,6 +14,7 @@ set(HARDEN_CXX_FLAGS_COMMON
     -Werror=tautological-compare
     -Werror=uninitialized
     -Wextra
+    -Wnull-dereference
     -Wshadow
     -Wundef
 )
