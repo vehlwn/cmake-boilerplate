@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include <iostream>
+#include <string_view>
 
 #include <boost/regex/icu.hpp>
 
@@ -19,7 +20,8 @@ int main(const int argc, const char *argv[]) {
   const RegexIterator it = boost::make_u32regex_iterator(text, re);
   std::for_each(
       it, RegexIterator(), [](const boost::match_results<CharIterator> &m) {
-        const std::string sub(m[0].first, m[0].second);
+        const auto sub =
+            std::string_view(m[0].first, static_cast<std::size_t>(m.length()));
         std::cout << "length = " << m.length() << ", sub = \'" << sub << "\'\n";
       });
   return 0;
