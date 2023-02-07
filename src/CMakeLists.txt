@@ -22,3 +22,15 @@ else()
     target_link_libraries(${TARGET} PUBLIC ${Boost_LIBRARIES} ${ICU_LIBRARIES})
 endif()
 target_compile_options(${TARGET} PRIVATE ${HARDEN_CXX_FLAGS})
+
+set(TARGET bench-codepoints)
+add_executable(${TARGET} bench-codepoints.cpp)
+if(USE_CONAN)
+    target_link_libraries(${TARGET} PRIVATE ${CONAN_LIBS})
+else()
+    target_include_directories(
+        ${TARGET} SYSTEM PUBLIC ${Boost_INCLUDE_DIRS} ${ICU_INCLUDE_DIRS}
+    )
+    target_link_libraries(${TARGET} PUBLIC ${Boost_LIBRARIES} ${ICU_LIBRARIES})
+endif()
+target_compile_options(${TARGET} PRIVATE ${HARDEN_CXX_FLAGS})
