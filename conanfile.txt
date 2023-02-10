@@ -4,3 +4,6 @@ icu/72.1
 
 [generators]
 cmake
+
+[options]
+icu:data_packaging = static
