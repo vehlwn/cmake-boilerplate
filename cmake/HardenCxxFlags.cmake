@@ -34,7 +34,6 @@ set(HARDEN_CXX_FLAGS_GCC
 )
 set(HARDEN_CXX_FLAGS_CLANG
     # cmake-format: sortable
-    -Werror=conditional-uninitialized
     -Werror=dangling
     -Werror=delete-non-abstract-non-virtual-dtor
     -Werror=return-stack-address
