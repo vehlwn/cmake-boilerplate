@@ -34,10 +34,8 @@ set(HARDEN_CXX_FLAGS_GCC
 )
 set(HARDEN_CXX_FLAGS_CLANG
     # cmake-format: sortable
-    -Werror=dangling
-    -Werror=delete-non-abstract-non-virtual-dtor
-    -Werror=return-stack-address
-    -Wfor-loop-analysis
+    -Werror=dangling -Werror=delete-non-abstract-non-virtual-dtor
+    -Werror=return-stack-address -Wfor-loop-analysis
 )
 
 set(INITIAL_HARDEN_CXX_FLAGS)
