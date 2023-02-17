@@ -18,4 +18,5 @@ endif()
 
 include(CMakePrintHelpers)
 include(cmake/HardenCxxFlags.cmake)
+include(cmake/HardenCxxDefinitions.cmake)
 add_subdirectory(src)
