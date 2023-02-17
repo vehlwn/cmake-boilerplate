@@ -17,6 +17,6 @@ if(USE_CONAN)
 endif()
 
 include(CMakePrintHelpers)
-include(cmake/HardenCxxFlags.cmake)
+include(cmake/HardenCxxOptions.cmake)
 include(cmake/HardenCxxDefinitions.cmake)
 add_subdirectory(src)

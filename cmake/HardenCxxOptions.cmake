@@ -1,4 +1,4 @@
-set(HARDEN_CXX_FLAGS_COMMON
+set(HARDEN_CXX_OPTIONS_COMMON
     # cmake-format: sortable
     -pedantic-errors
     -Wall
@@ -19,7 +19,7 @@ set(HARDEN_CXX_FLAGS_COMMON
     -Wundef
 )
 
-set(HARDEN_CXX_FLAGS_GCC
+set(HARDEN_CXX_OPTIONS_GCC
     # cmake-format: sortable
     -Wduplicated-branches
     -Wduplicated-cond
@@ -32,28 +32,28 @@ set(HARDEN_CXX_FLAGS_GCC
     -Wlogical-op
     -Wstrict-overflow=4
 )
-set(HARDEN_CXX_FLAGS_CLANG
+set(HARDEN_CXX_OPTIONS_CLANG
     # cmake-format: sortable
     -Werror=dangling -Werror=delete-non-abstract-non-virtual-dtor
     -Werror=return-stack-address -Wfor-loop-analysis
 )
 
-set(INITIAL_HARDEN_CXX_FLAGS)
-list(APPEND INITIAL_HARDEN_CXX_FLAGS ${HARDEN_CXX_FLAGS_COMMON}
-     ${HARDEN_CXX_FLAGS_GCC} ${HARDEN_CXX_FLAGS_CLANG}
+set(INITIAL_HARDEN_CXX_OPTIONS)
+list(APPEND INITIAL_HARDEN_CXX_OPTIONS ${HARDEN_CXX_OPTIONS_COMMON}
+     ${HARDEN_CXX_OPTIONS_GCC} ${HARDEN_CXX_OPTIONS_CLANG}
 )
 
 include(CheckCXXCompilerFlag)
 
-set(HARDEN_CXX_FLAGS)
-foreach(flag IN LISTS INITIAL_HARDEN_CXX_FLAGS)
+set(HARDEN_CXX_OPTIONS)
+foreach(flag IN LISTS INITIAL_HARDEN_CXX_OPTIONS)
     set(TMP_VAR_NAME "HAS_${flag}")
     string(REGEX REPLACE "[-_=]+" "_" TMP_VAR_NAME ${TMP_VAR_NAME})
     check_cxx_compiler_flag(${flag} ${TMP_VAR_NAME})
     set(HAS_FLAG ${${TMP_VAR_NAME}})
     if(HAS_FLAG)
-        list(APPEND HARDEN_CXX_FLAGS ${flag})
+        list(APPEND HARDEN_CXX_OPTIONS ${flag})
     endif()
-endforeach(flag IN LISTS INITIAL_HARDEN_CXX_FLAGS)
+endforeach(flag IN LISTS INITIAL_HARDEN_CXX_OPTIONS)
 
-cmake_print_variables(HARDEN_CXX_FLAGS)
+cmake_print_variables(HARDEN_CXX_OPTIONS)
