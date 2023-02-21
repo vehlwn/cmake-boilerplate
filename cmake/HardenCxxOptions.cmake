@@ -5,7 +5,7 @@ set(HARDEN_CXX_OPTIONS_COMMON
     -Werror=cast-align
     -Werror=conversion
     -Werror=format
-    -Werror=format-security
+    -Werror=format-nonliteral
     -Werror=implicit-fallthrough
     -Werror=pedantic
     -Werror=return-type
