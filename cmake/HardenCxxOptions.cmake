@@ -7,6 +7,7 @@ set(HARDEN_CXX_OPTIONS_COMMON
     -Werror=format
     -Werror=format-nonliteral
     -Werror=implicit-fallthrough
+    -Werror=parentheses
     -Werror=pedantic
     -Werror=return-type
     -Werror=sign-conversion
