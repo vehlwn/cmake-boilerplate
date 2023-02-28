@@ -10,6 +10,7 @@ common_flags = [
     '-Werror=parentheses',
     '-Werror=pedantic',
     '-Werror=return-type',
+    '-Werror=sign-compare',
     '-Werror=sign-conversion',
     '-Werror=switch',
     '-Werror=tautological-compare',

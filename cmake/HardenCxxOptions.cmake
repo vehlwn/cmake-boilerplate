@@ -10,6 +10,7 @@ set(HARDEN_CXX_OPTIONS_COMMON
     -Werror=parentheses
     -Werror=pedantic
     -Werror=return-type
+    -Werror=sign-compare
     -Werror=sign-conversion
     -Werror=switch
     -Werror=tautological-compare
