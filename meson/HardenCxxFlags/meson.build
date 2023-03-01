@@ -24,7 +24,6 @@ common_flags = [
 gcc_flags = [
     '-Wduplicated-branches',
     '-Wduplicated-cond',
-    '-Werror=arith-conversion',
     '-Werror=dangling-pointer=2',
     '-Werror=maybe-uninitialized',
     '-Werror=nonnull-compare',
