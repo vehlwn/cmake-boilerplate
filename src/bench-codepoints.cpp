@@ -3,6 +3,7 @@
 #include <chrono>
 #include <cstddef>
 #include <cstdlib>
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <iterator>
@@ -13,23 +14,13 @@
 #include <unicode/umachine.h>
 #include <unicode/unistr.h>
 
-std::string copyToString(std::istream& is)
+std::string readFileToString(const std::filesystem::path& path)
 {
-    constexpr std::size_t BUF_SIZE = 4096;
-    std::array<char, BUF_SIZE> buf;
-    is.read(buf.begin(), buf.size());
-    std::streamsize n = is.gcount();
-    std::string ret;
-    while(n > 0) {
-        ret.append(buf.begin(), static_cast<std::size_t>(n));
-        if(is) {
-            is.read(buf.begin(), buf.size());
-            n = is.gcount();
-        } else {
-            n = 0;
-        }
-    }
-    return ret;
+    std::ifstream in(path, std::ios::binary);
+    in.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+    std::ostringstream ret;
+    ret << in.rdbuf();
+    return ret.str();
 }
 
 int main(const int argc, const char* argv[])
@@ -39,13 +30,7 @@ int main(const int argc, const char* argv[])
         std::exit(1);
     }
 
-    std::string text;
-    if(std::ifstream f{argv[1]}) {
-        text = copyToString(f);
-    } else {
-        std::cerr << "failed to open file" << std::endl;
-        std::exit(1);
-    }
+    std::string text = readFileToString(argv[1]);
 
     std::cout << "text.size = " << text.size() << std::endl;
 
