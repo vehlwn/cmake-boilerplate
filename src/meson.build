@@ -1,32 +1,49 @@
-boost_dep = dependency('boost', modules: ['random', 'regex'], include_type: 'system')
-icu_i18n = dependency('icu-i18n', include_type: 'system')
-icu_uc = dependency('icu-uc', include_type: 'system')
-icu_io = dependency('icu-io', include_type: 'system')
+icu_deps = []
+if get_option('use_conan')
+  message('Using Conan')
+  boost_deps = []
+  foreach name : [
+      'boost-random',
+      'boost-regex',
+    ]
+    boost_deps += dependency(name, include_type: 'system')
+  endforeach
+else
+  boost_deps = dependency('boost', modules: ['random', 'regex'], include_type: 'system')
+endif
+
+foreach name : [
+    'icu-i18n',
+    'icu-io',
+    'icu-uc',
+  ]
+  icu_deps += dependency(name, include_type: 'system')
+endforeach
 
 executable(
   'random',
   ['random.cpp'],
-  dependencies: [boost_dep],
+  dependencies: [boost_deps],
   cpp_args: HARDEN_CXX_OPTIONS
 )
 
 executable(
   'codepoints-boost-regex',
   ['codepoints-boost-regex.cpp'],
-  dependencies: [boost_dep, icu_uc, icu_i18n],
+  dependencies: [boost_deps, icu_deps],
   cpp_args: HARDEN_CXX_OPTIONS
 )
 
 executable(
   'bench-codepoints',
   ['bench-codepoints.cpp'],
-  dependencies: [boost_dep, icu_uc, icu_i18n],
+  dependencies: [boost_deps, icu_deps],
   cpp_args: HARDEN_CXX_OPTIONS
 )
 
 executable(
   'icu-normalize',
   ['icu-normalize.cpp'],
-  dependencies: [boost_dep, icu_i18n, icu_io],
+  dependencies: [boost_deps, icu_deps],
   cpp_args: HARDEN_CXX_OPTIONS
 )

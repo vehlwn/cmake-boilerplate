@@ -1,0 +1,6 @@
+option(
+  'use_conan',
+  type: 'boolean',
+  value: false,
+  description: 'Use Conan to install dependencies'
+)
