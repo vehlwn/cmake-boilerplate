@@ -33,13 +33,13 @@ int main(const int argc, const char* argv[])
 
     icu::ErrorCode err;
     const icu::Normalizer2& nfkc = *icu::Normalizer2::getNFKCInstance(err);
-    if(err.isFailure()) {
+    if(err.isFailure() != 0) {
         std::cerr << "icu::Normalizer2::getNFKCInstance failed: " << err.errorName()
                   << std::endl;
         std::exit(1);
     }
     const icu::UnicodeString normalized = nfkc.normalize(text, err);
-    if(err.isFailure()) {
+    if(err.isFailure() != 0) {
         std::cerr << "nfkc.normalize failed: " << err.errorName() << std::endl;
         std::exit(1);
     }

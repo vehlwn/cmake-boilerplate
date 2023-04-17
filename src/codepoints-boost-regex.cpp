@@ -6,14 +6,14 @@
 #include <boost/regex/icu.hpp>
 
 int main(const int argc, const char* argv[])
-{
+try {
     if(argc == 1) {
         std::cerr << "usage: " << argv[0] << " <string> " << std::endl;
         std::exit(1);
     }
 
     const auto re = boost::make_u32regex(".");
-    const auto text = argv[1];
+    const auto* const text = argv[1];
     std::cout << "text = \'" << text << "\'" << '\n';
 
     using CharIterator = const char*;
@@ -28,4 +28,6 @@ int main(const int argc, const char* argv[])
             std::cout << "length = " << m.length() << ", sub = \'" << sub << "\'\n";
         });
     return 0;
+} catch(const std::exception& ex) {
+    std::cerr << "Error: " << ex.what() << std::endl;
 }

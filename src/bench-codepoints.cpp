@@ -3,6 +3,7 @@
 #include <chrono>
 #include <cstddef>
 #include <cstdlib>
+#include <exception>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -24,13 +25,13 @@ std::string readFileToString(const std::filesystem::path& path)
 }
 
 int main(const int argc, const char* argv[])
-{
+try {
     if(argc == 1) {
         std::cerr << "usage: " << argv[0] << " <file name> " << std::endl;
         std::exit(1);
     }
 
-    std::string text = readFileToString(argv[1]);
+    const std::string text = readFileToString(argv[1]);
 
     std::cout << "text.size = " << text.size() << std::endl;
 
@@ -55,4 +56,6 @@ int main(const int argc, const char* argv[])
     t2 = std::chrono::system_clock::now();
     std::cout << std::chrono::duration<double>(t2 - t1).count() << " s" << std::endl;
     return 0;
+} catch(const std::exception& ex) {
+    std::cerr << "Error: " << ex.what() << std::endl;
 }
