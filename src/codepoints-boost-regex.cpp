@@ -5,7 +5,7 @@
 
 #include <boost/regex/icu.hpp>
 
-int main(const int argc, const char* argv[])
+auto main(const int argc, const char* argv[]) -> int
 try {
     if(argc == 1) {
         std::cerr << "usage: " << argv[0] << " <string> " << std::endl;

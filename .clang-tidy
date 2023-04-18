@@ -8,10 +8,15 @@ Checks: >
   ,misc-*
   ,performance-*
   ,readability-*
+  ,modernize-*
   ,-cppcoreguidelines-avoid-magic-numbers
   ,-cppcoreguidelines-pro-bounds-pointer-arithmetic
   ,-readability-identifier-length
   ,-readability-magic-numbers
 WarningsAsErrors: >
   ,bugprone-use-after-move
+CheckOptions:
+  cppcoreguidelines-explicit-virtual-functions.IgnoreDestructors: true
+  hicpp-use-override.IgnoreDestructors: true
+  modernize-use-override.IgnoreDestructors: true
 FormatStyle: file

@@ -15,7 +15,7 @@
 #include <unicode/umachine.h>
 #include <unicode/unistr.h>
 
-std::string readFileToString(const std::filesystem::path& path)
+auto readFileToString(const std::filesystem::path& path) -> std::string
 {
     std::ifstream in(path, std::ios::binary);
     in.exceptions(std::ifstream::failbit | std::ifstream::badbit);
@@ -24,7 +24,7 @@ std::string readFileToString(const std::filesystem::path& path)
     return ret.str();
 }
 
-int main(const int argc, const char* argv[])
+auto main(const int argc, const char* argv[]) -> int
 try {
     if(argc == 1) {
         std::cerr << "usage: " << argv[0] << " <file name> " << std::endl;
