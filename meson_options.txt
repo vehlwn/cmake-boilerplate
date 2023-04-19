@@ -4,3 +4,9 @@ option(
   value: false,
   description: 'Use Conan to install dependencies'
 )
+option(
+  'build_testing',
+  type: 'boolean',
+  value: false,
+  description: 'Build unit tests'
+)
