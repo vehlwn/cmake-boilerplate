@@ -7,6 +7,8 @@ project(
 )
 
 subdir('meson')
+add_project_arguments(HARDEN_CXX_OPTIONS, language: 'cpp')
+
 subdir('src')
 
 if get_option('build_testing')

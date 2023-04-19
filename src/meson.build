@@ -23,27 +23,23 @@ endforeach
 executable(
   'random',
   ['random.cpp'],
-  dependencies: [boost_deps],
-  cpp_args: HARDEN_CXX_OPTIONS
+  dependencies: [boost_deps]
 )
 
 executable(
   'codepoints-boost-regex',
   ['codepoints-boost-regex.cpp'],
-  dependencies: [boost_deps, icu_deps],
-  cpp_args: HARDEN_CXX_OPTIONS
+  dependencies: [boost_deps, icu_deps]
 )
 
 executable(
   'bench-codepoints',
   ['bench-codepoints.cpp'],
-  dependencies: [boost_deps, icu_deps],
-  cpp_args: HARDEN_CXX_OPTIONS
+  dependencies: [boost_deps, icu_deps]
 )
 
 executable(
   'icu-normalize',
   ['icu-normalize.cpp'],
-  dependencies: [boost_deps, icu_deps],
-  cpp_args: HARDEN_CXX_OPTIONS
+  dependencies: [boost_deps, icu_deps]
 )

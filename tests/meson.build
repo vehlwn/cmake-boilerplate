@@ -12,7 +12,6 @@ test('random',
   executable(
     'random',
     ['random.cpp'],
-    dependencies: [boost_deps],
-    cpp_args: HARDEN_CXX_OPTIONS
+    dependencies: [boost_deps]
   )
 )
