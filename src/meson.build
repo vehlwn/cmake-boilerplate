@@ -1,17 +1,15 @@
-icu_deps = []
+boost_modules = ['random', 'regex']
 if get_option('use_conan')
   message('Using Conan')
   boost_deps = []
-  foreach name : [
-      'boost-random',
-      'boost-regex',
-    ]
-    boost_deps += dependency(name, include_type: 'system')
+  foreach name : boost_modules
+    boost_deps += dependency('boost-' + name, include_type: 'system')
   endforeach
 else
-  boost_deps = dependency('boost', modules: ['random', 'regex'], include_type: 'system')
+  boost_deps = dependency('boost', modules: boost_modules, include_type: 'system')
 endif
 
+icu_deps = []
 foreach name : [
     'icu-i18n',
     'icu-io',
