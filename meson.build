@@ -1,7 +1,7 @@
 project(
   'Boilerplate',
   ['cpp'],
-  default_options: ['cpp_std=c++17'],
+  default_options: ['cpp_std=c++17', 'warning_level=0'],
   license: 'ISC',
   meson_version: '>=0.60'
 )
