@@ -20,7 +20,7 @@ void print_codepoints(const icu::UnicodeString& text)
 }
 } // namespace
 
-auto main(const int argc, const char* argv[]) -> int
+int main(const int argc, const char* argv[])
 {
     if(argc == 1) {
         std::cerr << "usage: " << argv[0] << " <string> " << std::endl;

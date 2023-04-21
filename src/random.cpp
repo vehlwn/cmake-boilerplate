@@ -4,7 +4,7 @@
 #include <boost/random/random_device.hpp>
 #include <boost/random/uniform_int_distribution.hpp>
 
-auto main() -> int
+int main()
 {
     boost::random::random_device rd;
     boost::random::mt19937_64 gen(rd());
