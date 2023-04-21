@@ -16,6 +16,7 @@ Checks: >
   ,-readability-magic-numbers
 WarningsAsErrors: >
   ,bugprone-use-after-move
+  ,performance-move-const-arg
 CheckOptions:
   cppcoreguidelines-explicit-virtual-functions.IgnoreDestructors: true
   hicpp-use-override.IgnoreDestructors: true
