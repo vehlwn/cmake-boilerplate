@@ -13,7 +13,7 @@ try {
     }
 
     const auto re = boost::make_u32regex(".");
-    const auto* const text = argv[1];
+    const auto text = argv[1];
     std::cout << "text = \'" << text << "\'" << '\n';
 
     using CharIterator = const char*;
