@@ -24,9 +24,12 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v4
 
+      - name: Create build dir
+        run: mkdir build
+
       - name: Compile
         run: |
-          mkdir build && cd build
+          cd build
           meson setup -D build_testing=true
           meson compile
 
