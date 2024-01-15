@@ -18,25 +18,25 @@ foreach name : [
   icu_deps += dependency(name, include_type: 'system')
 endforeach
 
-executable(
+random_exe = executable(
   'random',
   ['random.cpp'],
   dependencies: [boost_deps]
 )
 
-executable(
+codepoints_boost_regex_exe = executable(
   'codepoints-boost-regex',
   ['codepoints-boost-regex.cpp'],
   dependencies: [boost_deps, icu_deps]
 )
 
-executable(
+bench_codepoints_exe = executable(
   'bench-codepoints',
   ['bench-codepoints.cpp'],
   dependencies: [boost_deps, icu_deps]
 )
 
-executable(
+icu_normalize_exe = executable(
   'icu-normalize',
   ['icu-normalize.cpp'],
   dependencies: [boost_deps, icu_deps]

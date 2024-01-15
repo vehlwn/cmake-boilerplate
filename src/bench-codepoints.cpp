@@ -58,4 +58,5 @@ try {
     return 0;
 } catch(const std::exception& ex) {
     std::cerr << "Error: " << ex.what() << std::endl;
+    return 1;
 }

@@ -8,10 +8,16 @@ else
   boost_deps = dependency('boost', modules: boost_modules, include_type: 'system')
 endif
 
-test('random',
+test('random-dist',
   executable(
-    'random',
-    ['random.cpp'],
+    'random-dist',
+    ['random-dist.cpp'],
     dependencies: [boost_deps]
   )
 )
+test('random', random_exe)
+
+str_data = '𝐀𝐁𝐂s̆ӹ'
+test('codepoints-boost-regex', codepoints_boost_regex_exe, args : [str_data])
+test('bench-codepoints', bench_codepoints_exe, args : ['/etc/os-release'])
+test('icu-normalize', icu_normalize_exe, args : [str_data])
