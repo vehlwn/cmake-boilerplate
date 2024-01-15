@@ -31,7 +31,7 @@ jobs:
           meson compile
 
       - name: Check clang-tidy
-        run: ninja clang-tidy
+        run: cd build && ninja clang-tidy
 
       - name: Run tests
-        run: meson test --print-errorlogs
+        run: cd build && meson test --print-errorlogs
