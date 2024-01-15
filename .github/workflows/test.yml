@@ -27,14 +27,14 @@ jobs:
       - name: Create build dir
         run: mkdir build
 
-      - name: Compile
-        run: |
-          cd build
-          meson setup -D build_testing=true
-          meson compile
+      - name: Configure
+        run: meson setup -D build_testing=true build
+
+      - name: Build
+        run: meson compile -C build
 
       - name: Check clang-tidy
-        run: cd build && ninja clang-tidy
+        run: ninja clang-tidy -C build
 
       - name: Run tests
-        run: cd build && meson test --print-errorlogs
+        run: meson test -C build --print-errorlogs
