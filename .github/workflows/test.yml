@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     container: archlinux:latest
 
+    strategy:
+      matrix:
+        compiler: [g++, clang++]
+
     steps:
       - name: Install dependencies
         run: |
@@ -28,7 +32,7 @@ jobs:
         run: mkdir build
 
       - name: Configure
-        run: meson setup -D build_testing=true build
+        run: CXX=${{matrix.compiler}} meson setup -D build_testing=true build
 
       - name: Build
         run: meson compile -C build
